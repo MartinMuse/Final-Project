@@ -1,5 +1,7 @@
+@import "../abstracts/variables";
 .follow{
   text-align: center;
+  background:url('http://chocorocco.ancorathemes.com/wp-content/themes/chocorocco/images/quote.jpg');
   &__list{
     display: flex;
     flex-direction: row;
@@ -7,5 +9,18 @@
   &__item{
     list-style-type: none;
     padding: 5px;
+  }
+  &__anchor{
+    text-decoration: none;
+  }
+  &__button{
+    border: 1px solid $dark-brown;
+    padding: 15px 60px;
+    background-color: transparent;
+    &--hovered:hover{
+      cursor: pointer;
+      border: 1px solid transparent;
+      background-color: $yellow;
+    }
   }
 }

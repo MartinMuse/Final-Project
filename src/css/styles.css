@@ -332,7 +332,18 @@ img {
   font-size: 60px;
   font-family: "Abril Fatface", sans-serif;
   text-align: center;
-  letter-spacing: 5px; }
+  letter-spacing: 5px;
+  line-height: 1.0; }
+  .title--uppercase {
+    font-size: 1.667rem;
+    color: #a0916d;
+    letter-spacing: 1px;
+    font-family: "Fjalla One", sans-serif;
+    text-transform: uppercase;
+    line-height: 1.32;
+    font-weight: 400; }
+  .title--uppercase:hover {
+    color: #f1ce7e; }
 
 .sub-title {
   font-family: "Montserrat", sans-serif;
@@ -346,7 +357,8 @@ img {
   text-transform: uppercase;
   border: none;
   outline: none;
-  line-height: 24px; }
+  line-height: 24px;
+  transition: all 0.6s ease; }
 
 .header {
   font-size: 15px;
@@ -379,8 +391,7 @@ img {
   text-align: center; }
   .top-section__title {
     padding: 150px 0 20px;
-    color: #ffffff;
-    line-height: 1.25; }
+    color: #ffffff; }
   .top-section__sub-title {
     color: #ffffff; }
   .top-section__button {
@@ -401,27 +412,53 @@ img {
   .product-categories__sub-title {
     color: #a0916d; }
 
-.categories__button {
-  padding: 15px 30px;
-  background-color: #f0efe9;
-  color: #5a4f45;
-  margin: 50px; }
-  .categories__button--hovered:hover {
-    background-color: #f1ce7e;
-    cursor: pointer; }
+.categories {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 10px; }
+  .categories__block {
+    display: grid; }
+  .categories__button {
+    padding: 15px 30px;
+    background-color: #f0efe9;
+    color: #5a4f45;
+    margin: 50px; }
+    .categories__button--hovered:hover {
+      background-color: #f1ce7e;
+      cursor: pointer; }
 
 .quotes {
   padding: 100px;
   background: url("http://chocorocco.ancorathemes.com/wp-content/themes/chocorocco/images/quote.jpg"); }
 
 .follow {
-  text-align: center; }
+  text-align: center;
+  background: url("http://chocorocco.ancorathemes.com/wp-content/themes/chocorocco/images/quote.jpg"); }
   .follow__list {
     display: flex;
     flex-direction: row; }
   .follow__item {
     list-style-type: none;
     padding: 5px; }
+  .follow__anchor {
+    text-decoration: none; }
+  .follow__button {
+    border: 1px solid #5a4f45;
+    padding: 15px 60px;
+    background-color: transparent; }
+    .follow__button--hovered:hover {
+      cursor: pointer;
+      border: 1px solid transparent;
+      background-color: #f1ce7e; }
+
+.our-kitchen {
+  background: url("http://chocorocco.ancorathemes.com/wp-content/uploads/2017/05/bg2.jpg?id=314") no-repeat center;
+  background-size: cover;
+  text-align: center; }
+  .our-kitchen__title {
+    color: #ffffff; }
+  .our-kitchen__sub-title {
+    color: #ffffff; }
 
 .footer {
   padding: 100px 0;

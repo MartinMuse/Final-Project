@@ -10,6 +10,13 @@
 }
 
 .categories {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 10px;
+
+  &__block {
+    display: grid;
+  }
 
   &__button {
     padding: 15px 30px;

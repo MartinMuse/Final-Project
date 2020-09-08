@@ -34,6 +34,19 @@ img {
   font-family: $font-family-abril;
   text-align: center;
   letter-spacing: 5px;
+  line-height: 1.0;
+
+  &--uppercase {
+    @include text-styles(  1.667rem, $light-brown);
+    font-family: $font-family-fjalla;
+    text-transform: uppercase;
+    line-height: 1.32;
+    font-weight: 400;
+  }
+
+  &--uppercase:hover {
+    color: $yellow;
+  }
 }
 
 .sub-title {
@@ -50,4 +63,5 @@ img {
   border: none;
   outline: none;
   line-height: 24px;
+  transition: all 0.6s ease;
 }
