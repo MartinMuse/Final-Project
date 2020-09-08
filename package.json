@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "local-server": "http-server -c-1 ./",
-    "inner-sass": "sass --watch ./src/sass:./src/css",
+    "inner-sass": "sass --watch ./src/sass:./src/css ",
     "build": "./node_modules/.bin/webpack --mode production",
     "dev": "./node_modules/.bin/webpack --mode development --watch"
   },
@@ -28,6 +28,7 @@
     "sass-loader": "^10.0.2",
     "style-loader": "^1.2.1",
     "webpack": "^4.44.1",
-    "webpack-cli": "^3.3.12"
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
   }
 }
