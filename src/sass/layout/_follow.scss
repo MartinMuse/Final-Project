@@ -1,0 +1,11 @@
+.follow{
+  text-align: center;
+  &__list{
+    display: flex;
+    flex-direction: row;
+  }
+  &__item{
+    list-style-type: none;
+    padding: 5px;
+  }
+}

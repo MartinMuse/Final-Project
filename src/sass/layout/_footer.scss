@@ -1,0 +1,11 @@
+@import "../abstracts/variables";
+
+.footer{
+  padding: 100px 0;
+  display: flex;
+  //background-color: $dark-brown ;
+  &__contact-us{
+    //display: flex;
+    //flex-direction: row;
+  }
+}

@@ -2,17 +2,14 @@
 
 .top-section {
   text-align: center;
-  &__title {
-    padding: 150px 0 20px;
-  }
 
   &__title {
+    padding: 150px 0 20px;
     color: $white;
     line-height: 1.25;
   }
-  &__paragraph{
-    font-family: $font-family-abril;
-    @include text-styles($md-font-size, $white);
+  &__sub-title{
+    color: $white;
   }
 
   &__button {

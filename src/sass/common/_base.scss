@@ -29,14 +29,22 @@ img {
   opacity: 1;
 }
 
-.title{
+.title {
   font-size: $extra-xl-font-size;
   font-family: $font-family-abril;
   text-align: center;
   letter-spacing: 5px;
 }
 
-.button{
+.sub-title {
+  font-family: $font-family-montserrat;
+  letter-spacing: 1px;
+  font-style: italic;
+  line-height: 19px;
+  font-size: $sm-font-size;
+}
+
+.button {
   font-family: $font-family-fjalla;
   text-transform: uppercase;
   border: none;

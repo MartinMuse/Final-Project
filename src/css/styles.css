@@ -329,10 +329,17 @@ img {
   opacity: 1; }
 
 .title {
-  font-size: 65px;
+  font-size: 60px;
   font-family: "Abril Fatface", sans-serif;
   text-align: center;
   letter-spacing: 5px; }
+
+.sub-title {
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 1px;
+  font-style: italic;
+  line-height: 19px;
+  font-size: 12px; }
 
 .button {
   font-family: "Fjalla One", sans-serif;
@@ -371,15 +378,11 @@ img {
 .top-section {
   text-align: center; }
   .top-section__title {
-    padding: 150px 0 20px; }
-  .top-section__title {
+    padding: 150px 0 20px;
     color: #ffffff;
     line-height: 1.25; }
-  .top-section__paragraph {
-    font-family: "Abril Fatface", sans-serif;
-    font-size: 15px;
-    color: #ffffff;
-    letter-spacing: 1px; }
+  .top-section__sub-title {
+    color: #ffffff; }
   .top-section__button {
     padding: 25px 85px;
     margin: 45px 0 190px;
@@ -391,5 +394,37 @@ img {
       cursor: pointer;
       background-color: #a0916d;
       color: #ffffff; }
+
+.product-categories {
+  padding: 30px;
+  text-align: center; }
+  .product-categories__sub-title {
+    color: #a0916d; }
+
+.categories__button {
+  padding: 15px 30px;
+  background-color: #f0efe9;
+  color: #5a4f45;
+  margin: 50px; }
+  .categories__button--hovered:hover {
+    background-color: #f1ce7e;
+    cursor: pointer; }
+
+.quotes {
+  padding: 100px;
+  background: url("http://chocorocco.ancorathemes.com/wp-content/themes/chocorocco/images/quote.jpg"); }
+
+.follow {
+  text-align: center; }
+  .follow__list {
+    display: flex;
+    flex-direction: row; }
+  .follow__item {
+    list-style-type: none;
+    padding: 5px; }
+
+.footer {
+  padding: 100px 0;
+  display: flex; }
 
 /*# sourceMappingURL=styles.css.map */
