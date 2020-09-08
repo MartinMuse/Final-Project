@@ -21,6 +21,10 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 10px;
 
+  &--hovered:hover{
+    cursor: pointer;
+    color: $yellow;
+  }
   &__block {
     display: grid;
   }

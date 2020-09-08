@@ -1,11 +1,23 @@
 @import "../abstracts/variables";
 
-.footer{
-  padding: 100px 0;
+.footer {
+  color: $white;
   display: flex;
-  //background-color: $dark-brown ;
-  &__contact-us{
-    //display: flex;
-    //flex-direction: row;
+  background-color: $dark-brown;
+
+  &__contact-us {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__block {
+    display: flex;
+  }
+
+  &__bottom {
+    padding-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
   }
 }

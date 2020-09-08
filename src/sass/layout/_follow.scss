@@ -2,15 +2,16 @@
 @import "../abstracts/mixins";
 
 .follow{
+  padding: 20px 0 90px;
   text-align: center;
   background:url('http://chocorocco.ancorathemes.com/wp-content/themes/chocorocco/images/quote.jpg');
   &__title{
-    padding: 100px 0 30px;
+    padding: 50px 0 0px;
   }
   &__list{
     display: flex;
     flex-direction: row;
-    padding: 0;
+    padding: 50px 0;
     @include breakpoint(450) {
       flex-direction: column;
       align-items: center;
@@ -28,7 +29,11 @@
   &__anchor{
     text-decoration: none;
   }
+  &__img--hovered:hover{
+    box-shadow: 0 0 10px rgba(0,0,0,.6);
+  }
   &__button{
+    margin: 20px 0 40px;
     border: 1px solid $dark-brown;
     padding: 15px 60px;
     background-color: transparent;

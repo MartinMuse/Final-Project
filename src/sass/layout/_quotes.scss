@@ -1,4 +1,12 @@
-.quotes{
+@import "../abstracts/variables";
+
+.quotes {
+  text-align: center;
   padding: 100px;
-  background:url('http://chocorocco.ancorathemes.com/wp-content/themes/chocorocco/images/quote.jpg');
+  //background: url('http://chocorocco.ancorathemes.com/wp-content/uploads/2017/05/bg1.jpg?id=344');
+
+  &--uppercase {
+    color: $dark-brown;
+    padding-bottom: 10px;
+  }
 }
