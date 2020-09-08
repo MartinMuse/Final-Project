@@ -1,0 +1,30 @@
+@import "../abstracts/variables";
+
+.top-section {
+  text-align: center;
+  &__title {
+    padding: 150px 0 20px;
+  }
+
+  &__title {
+    color: $white;
+    line-height: 1.25;
+  }
+  &__paragraph{
+    font-family: $font-family-abril;
+    @include text-styles($md-font-size, $white);
+  }
+
+  &__button {
+    padding: 25px 85px;
+    margin: 45px 0 190px;
+    @include text-styles($md-font-size, $dark-brown);
+    background-color: $yellow;
+    &--hovered:hover{
+      cursor: pointer;
+      background-color: $light-brown;
+      color: $white;
+    }
+  }
+}
+

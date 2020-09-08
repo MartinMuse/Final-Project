@@ -1,0 +1,19 @@
+@mixin text-styles($font-size, $font-color) {
+  font-size: $font-size;
+  color: $font-color;
+  letter-spacing: 1px;
+}
+
+@mixin breakpoint($size) {
+  @media only screen and (max-width: $size + px) {
+    @content;
+  }
+}
+//example @include breakpoint(940) { width:80%; }
+
+//@mixin hoverFocus($property, $value) {
+//  &:hover {
+//    #{$property}: $value;
+//  }
+//}
+////example @include hoverFocus('text-decoration', 'none');
