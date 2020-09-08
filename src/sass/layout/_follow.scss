@@ -1,12 +1,27 @@
 @import "../abstracts/variables";
+@import "../abstracts/mixins";
+
 .follow{
   text-align: center;
   background:url('http://chocorocco.ancorathemes.com/wp-content/themes/chocorocco/images/quote.jpg');
+  &__title{
+    padding: 100px 0 30px;
+  }
   &__list{
     display: flex;
     flex-direction: row;
+    padding: 0;
+    @include breakpoint(450) {
+      flex-direction: column;
+      align-items: center;
+    }
   }
   &__item{
+    @include breakpoint(450) {
+      padding: 10px 0;
+      max-width: 200px;
+      height: auto;
+    }
     list-style-type: none;
     padding: 5px;
   }
@@ -24,3 +39,4 @@
     }
   }
 }
+

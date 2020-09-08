@@ -1,0 +1,11 @@
+@import "../abstracts/variables";
+
+.natural-ingredients{
+  background-size: cover;
+  text-align: center;
+  background:url('http://chocorocco.ancorathemes.com/wp-content/uploads/2017/05/bg1.jpg?id=344') center no-repeat;
+ &__title{
+   color:$white ;
+   padding: 100px 0 140px;
+ }
+}

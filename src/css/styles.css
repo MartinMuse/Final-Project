@@ -416,6 +416,12 @@ img {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 10px; }
+  @media only screen and (max-width: 800px) {
+    .categories {
+      grid-template-columns: 1fr 1fr; } }
+  @media only screen and (max-width: 450px) {
+    .categories {
+      grid-template-columns: 1fr; } }
   .categories__block {
     display: grid; }
   .categories__button {
@@ -434,12 +440,24 @@ img {
 .follow {
   text-align: center;
   background: url("http://chocorocco.ancorathemes.com/wp-content/themes/chocorocco/images/quote.jpg"); }
+  .follow__title {
+    padding: 100px 0 30px; }
   .follow__list {
     display: flex;
-    flex-direction: row; }
+    flex-direction: row;
+    padding: 0; }
+    @media only screen and (max-width: 450px) {
+      .follow__list {
+        flex-direction: column;
+        align-items: center; } }
   .follow__item {
     list-style-type: none;
     padding: 5px; }
+    @media only screen and (max-width: 450px) {
+      .follow__item {
+        padding: 10px 0;
+        max-width: 200px;
+        height: auto; } }
   .follow__anchor {
     text-decoration: none; }
   .follow__button {
@@ -451,12 +469,21 @@ img {
       border: 1px solid transparent;
       background-color: #f1ce7e; }
 
+.natural-ingredients {
+  background-size: cover;
+  text-align: center;
+  background: url("http://chocorocco.ancorathemes.com/wp-content/uploads/2017/05/bg1.jpg?id=344") center no-repeat; }
+  .natural-ingredients__title {
+    color: #ffffff;
+    padding: 100px 0 140px; }
+
 .our-kitchen {
   background: url("http://chocorocco.ancorathemes.com/wp-content/uploads/2017/05/bg2.jpg?id=314") no-repeat center;
   background-size: cover;
   text-align: center; }
   .our-kitchen__title {
-    color: #ffffff; }
+    color: #ffffff;
+    padding: 120px 0 40px; }
   .our-kitchen__sub-title {
     color: #ffffff; }
 
