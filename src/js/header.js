@@ -1,5 +1,5 @@
 export function scrolledHeader() {
-    const headerNav = document.getElementById('header')
+    const headerNav = document.getElementById('home-header')
     window.onscroll = function () {
         let scrolled = window.pageXOffset || document.documentElement.scrollTop;
         if (scrolled > 60) {
@@ -10,3 +10,4 @@ export function scrolledHeader() {
     }
 }
 scrolledHeader()
+

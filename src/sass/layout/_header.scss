@@ -31,10 +31,28 @@
     padding: 0 0 0 30px;
   }
 
-  &__content {
+  &__menu {
+    color: $white;
+    text-decoration: none;
+
     &--hovered:hover {
       cursor: pointer;
       color: $yellow;
     }
+  }
+}
+
+.assortments {
+  &__header {
+    background-color: $dark-beige;
+  }
+
+  &__menu {
+    color: $dark-brown;
+  }
+
+  &__menu--hovered:hover {
+    cursor: pointer;
+    color: $light-brown;
   }
 }

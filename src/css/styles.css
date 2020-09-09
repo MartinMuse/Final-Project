@@ -334,6 +334,9 @@ img {
   text-align: center;
   letter-spacing: 5px;
   line-height: 1.0; }
+  @media only screen and (max-width: 500px) {
+    .title {
+      font-size: 34px; } }
   .title--uppercase {
     font-size: 1.667rem;
     color: #a0916d;
@@ -356,7 +359,9 @@ img {
   border: none;
   outline: none;
   line-height: 24px;
-  transition: all 0.6s ease; }
+  transition: all 0.6s ease;
+  text-decoration: none;
+  display: inline-block; }
 
 .header {
   font-size: 15px;
@@ -381,9 +386,20 @@ img {
     justify-content: space-between; }
   .header__item {
     padding: 0 0 0 30px; }
-  .header__content--hovered:hover {
-    cursor: pointer;
-    color: #f1ce7e; }
+  .header__menu {
+    color: #ffffff;
+    text-decoration: none; }
+    .header__menu--hovered:hover {
+      cursor: pointer;
+      color: #f1ce7e; }
+
+.assortments__header {
+  background-color: #e2e1db; }
+.assortments__menu {
+  color: #5a4f45; }
+.assortments__menu--hovered:hover {
+  cursor: pointer;
+  color: #a0916d; }
 
 .top-section {
   text-align: center; }
@@ -403,6 +419,19 @@ img {
       cursor: pointer;
       background-color: #a0916d;
       color: #ffffff; }
+
+.assortments__top-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 40px;
+  background-repeat: no-repeat;
+  background-image: url(http://chocorocco.ancorathemes.com/wp-content/uploads/2017/09/slide1.jpg);
+  background-size: cover;
+  background-position: 50% 50%;
+  width: 100%;
+  height: 100%; }
 
 .product-categories {
   padding: 30px;
@@ -434,9 +463,46 @@ img {
       background-color: #f1ce7e;
       cursor: pointer; }
 
+.product__list {
+  padding: 40px 0;
+  display: flex;
+  flex-direction: column; }
+.product__item {
+  display: flex;
+  border-bottom: 1px solid #e2e1db;
+  padding-bottom: 40px; }
+  @media only screen and (max-width: 650px) {
+    .product__item {
+      flex-direction: column; } }
+.product__description {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; }
+.product__cost {
+  padding: 20px 0; }
+.product__button {
+  padding: 7px 25px;
+  background-color: transparent;
+  border: 1px solid #a0916d; }
+.product__fa {
+  border-right: 1px solid #a0916d;
+  padding: 0 7px 0 0;
+  margin-right: 5px; }
+.product__img-box {
+  margin: 40px 30px 0 0; }
+.product__img {
+  border: 1px solid #f0efe9; }
+.product__img:hover {
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); }
+
 .quotes {
   text-align: center;
-  padding: 100px; }
+  padding: 100px;
+  background-color: #f0efe9; }
+  @media only screen and (max-width: 750px) {
+    .quotes {
+      padding: 0; } }
   .quotes--uppercase {
     color: #5a4f45;
     padding-bottom: 10px; }
@@ -468,6 +534,7 @@ img {
   .follow__img--hovered:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.6); }
   .follow__button {
+    color: #5a4f45;
     margin: 20px 0 40px;
     border: 1px solid #5a4f45;
     padding: 15px 60px;
@@ -518,5 +585,8 @@ img {
     display: flex;
     justify-content: space-between;
     align-items: baseline; }
+    @media only screen and (max-width: 780px) {
+      .footer__bottom {
+        flex-direction: column; } }
 
 /*# sourceMappingURL=styles.css.map */

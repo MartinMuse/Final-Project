@@ -1,9 +1,13 @@
 @import "../abstracts/variables";
+@import "../abstracts/mixins";
 
 .quotes {
   text-align: center;
   padding: 100px;
-  //background: url('http://chocorocco.ancorathemes.com/wp-content/uploads/2017/05/bg1.jpg?id=344');
+  background-color: $beige;
+  @include breakpoint(750) {
+    padding: 0;
+  }
 
   &--uppercase {
     color: $dark-brown;

@@ -1,4 +1,5 @@
 @import "../abstracts/variables";
+@import "../abstracts/mixins";
 
 .footer {
   color: $white;
@@ -15,6 +16,9 @@
   }
 
   &__bottom {
+    @include breakpoint(780){
+     flex-direction: column;
+    }
     padding-top: 15px;
     display: flex;
     justify-content: space-between;
