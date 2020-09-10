@@ -471,7 +471,7 @@ img {
   display: flex;
   border-bottom: 1px solid #e2e1db;
   padding-bottom: 40px; }
-  @media only screen and (max-width: 650px) {
+  @media only screen and (max-width: 750px) {
     .product__item {
       flex-direction: column; } }
 .product__description {
@@ -517,7 +517,7 @@ img {
     display: flex;
     flex-direction: row;
     padding: 50px 0; }
-    @media only screen and (max-width: 450px) {
+    @media only screen and (max-width: 750px) {
       .follow__list {
         flex-direction: column;
         align-items: center; } }
@@ -570,6 +570,47 @@ img {
     padding: 120px 0 40px; }
   .our-kitchen__sub-title {
     color: #ffffff; }
+
+.comments__box {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+.comments__form {
+  margin: 0 auto;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  flex-direction: column; }
+  @media only screen and (max-width: 850px) {
+    .comments__form {
+      width: 100%; } }
+.comments__block {
+  width: 70%;
+  padding: 0 0 10px 0;
+  border-bottom: 1px solid #e2e1db; }
+.comments__name-date {
+  display: flex;
+  justify-content: space-between; }
+.comments__button {
+  padding: 10px 30px;
+  margin: 20px 0; }
+  .comments__button--hovered:hover {
+    cursor: pointer;
+    background-color: #f1ce7e; }
+
+.textarea {
+  resize: vertical;
+  width: 100%;
+  border: 1px solid #a0916d; }
+
+.input {
+  width: 98%;
+  padding: 10px 5px;
+  border: 1px solid #a0916d; }
+
+.comments-page__follow {
+  background: none;
+  padding: 0; }
 
 .footer {
   color: #ffffff;

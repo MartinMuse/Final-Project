@@ -9,7 +9,7 @@
   }
 
   &__item {
-    @include breakpoint(650){
+    @include breakpoint(750){
       flex-direction: column;
     }
     display: flex;
