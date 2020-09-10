@@ -1,65 +1,83 @@
-import {scrolledHeader} from "./js/header.js";
+//import {scrolledHeader} from "./js/header.js";
+class FotmatDate {
+    static getDate(date) {
+        this.hours = "0" + date.getHours();
+        this.minutes = "0" + date.getMinutes();
+        return `${this.hours.slice(-2)}:${this.minutes.slice(-2)}`;
+    };
+}
 
-let comments = [];
-const commentsBox = document.getElementById("commentsBox");
-const input = document.getElementById('input')
-const form = document.getElementById('form')
-const textarea = document.getElementById('textarea')
+class Localstorage {
+    static addToLocalStorage(comments) {
+        localStorage.setItem('items', JSON.stringify(comments));
+    }
 
-function renderTodos(todo) {
-    commentsBox.innerHTML = '';
-    console.log('Todo', todo)
+   static getFromLocalStorage() {
+       return  localStorage.getItem('items');
+    }
+}
 
-    comments.forEach(function (point) {
+class Comment {
+    constructor() {
+        this.comments = [];
+        this.date = FotmatDate.getDate(new Date());
+        this.input = document.getElementById('input');
+        this.form = document.getElementById('form');
+        this.textarea = document.getElementById('textarea');
+        this.commentsBox = document.getElementById("commentsBox");
+    }
 
-        const renderHTML =
-            `<div class="comments__block">
+    addComment(name, comment) {
+        if (name !== '' && comment !== '') {
+            const todo = {
+                id: Date.now(),
+                name: name,
+                comment: comment
+            };
+            this.comments.push(todo);
+            this.addToLocalStorage(this.comments);
+            this.input.value = '';
+            this.textarea.value = ''
+        }
+    }
+
+    addListener() {
+        this.form.addEventListener('submit', (e) => {
+            e.preventDefault()
+            this.addComment(this.input.value, this.textarea.value)
+        })
+    }
+
+    addToLocalStorage(comments) {
+        Localstorage.addToLocalStorage(comments)
+        this.render();
+    }
+
+    getFromLocalStorage() {
+        if (Localstorage.getFromLocalStorage()) {
+            this.comments = JSON.parse(Localstorage.getFromLocalStorage());
+            this.render();
+        }
+    }
+
+    render() {
+        this.commentsBox.innerHTML = ''
+        let renderHTML
+        this.comments.forEach((point) => {
+            renderHTML =
+                `<div class="comments__block">
                      <div class="comments__name-date">
                          <p>${point.name}</p>
-                         <p class="sub-title">${formatDate(new Date())}</p>
+                          <p class="sub-title">${this.date}</p>
                     </div>
                     <div class="sub-title">${point.comment}</div>
-                </div>`
-        commentsBox.insertAdjacentHTML("beforeEnd", renderHTML);
-    });
-}
-
-function formatDate(date) {
-    const h = "0" + date.getHours();
-    const m = "0" + date.getMinutes();
-    return `${h.slice(-2)}:${m.slice(-2)}`;
-}
-
-function addTodo(name, comment) {
-    if (name !== '' && comment !== '') {
-        const todo = {
-            id: Date.now(),
-            name: name,
-            comment: comment
-        };
-        comments.push(todo);
-        addToLocalStorage(comments);
-        input.value = '';
-        textarea.value = ''
+                </div>`;
+            this.commentsBox.insertAdjacentHTML("afterbegin", renderHTML);
+        })
     }
 }
 
-form.addEventListener('submit', function (event) {
-    event.preventDefault();
-    addTodo(input.value, textarea.value)
-});
-
-function addToLocalStorage(comments) {
-    localStorage.setItem('items', JSON.stringify(comments));
-    renderTodos(comments);
-}
-
-function getFromLocalStorage() {
-    const reference = localStorage.getItem('items');
-    if (reference) {
-        comments = JSON.parse(reference);
-        renderTodos(comments);
-    }
-}
-
-getFromLocalStorage();
+const newComment = new Comment()
+newComment.getFromLocalStorage()
+newComment.addListener()
+console.log('Comments', newComment)
