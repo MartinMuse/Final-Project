@@ -1,3 +1,5 @@
+import {LocalStorage} from "./localStorage.js";
+
 class FotmatDate {
     static getDate(date) {
         this.hours = `0 ${date.getHours()}`;
@@ -6,24 +8,14 @@ class FotmatDate {
     };
 }
 
-class LocalStorage {
-    static addToLocalStorage(comments) {
-        localStorage.setItem('items', JSON.stringify(comments));
-    }
-
-    static getFromLocalStorage() {
-        return localStorage.getItem('items');
-    }
-}
-
 export class Comment {
-    constructor() {
+    constructor(input, form, textarea, commentsBox) {
         this.comments = [];
         this.date = FotmatDate.getDate(new Date());
-        this.input = document.getElementById('input');
-        this.form = document.getElementById('form');
-        this.textarea = document.getElementById('textarea');
-        this.commentsBox = document.getElementById("commentsBox");
+        this.input = document.getElementById(input);
+        this.form = document.getElementById(form);
+        this.textarea = document.getElementById(textarea);
+        this.commentsBox = document.getElementById(commentsBox);
     }
 
     addComment(name, comment) {
@@ -48,13 +40,14 @@ export class Comment {
     }
 
     addCommentsToLocalStorage(comments) {
-        LocalStorage.addToLocalStorage(comments)
+        LocalStorage.addToLocalStorage("commentsDate", comments);
         this.render();
     }
 
-    getCommentsFromLocalStorage() {
-        if (LocalStorage.getFromLocalStorage()) {
-            this.comments = JSON.parse(LocalStorage.getFromLocalStorage());
+
+    getCommentsFromLocalStorage(key) {
+        if (LocalStorage.getFromLocalStorage(key)) {
+            this.comments = JSON.parse(LocalStorage.getFromLocalStorage(key));
             this.render();
             return this;
         }
@@ -77,6 +70,6 @@ export class Comment {
     }
 }
 
-const newComment = new Comment();
-newComment.getCommentsFromLocalStorage()
+const newComment = new Comment('input', 'form', 'textarea', 'commentsBox');
+newComment.getCommentsFromLocalStorage("commentsDate")
 newComment.addListener()
