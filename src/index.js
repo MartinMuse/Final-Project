@@ -2,19 +2,15 @@
 // import {Comment} from './js/comments.js'
 
 class API {
-    constructor(category, key) {
-        this.category = category;
+    constructor(category, key, query) {
+        this.query = query || 'products';
         this.key = key || '5f560e6a32f56200168bcdc3';
-        this.data = [];
+        this.category = category;
     }
 
     createUrl() {
-        this.appUrl = `https://${this.key}.mockapi.io/api/data/${this.category}`;
+        this.appUrl = `https://${this.key}.mockapi.io/api/data/${this.query}`;
         return this;
-    }
-
-    get f() {
-        return this.data
     }
 
     async getResponse() {
@@ -29,22 +25,24 @@ class API {
         if (!response.ok) {
             throw new Error(`Error, status: ${response.status}`);
         } else {
-            console.log('Result', result)
-            Product.renderProduct(result, 'Assortments')
-            Product.renderProduct(result, 'Chocolate bars')
+            Product.renderProduct(result, this.category)
         }
         return result
     }
 }
 
-const request = new API('products');
+const request = new API('Chocolate bars');
 request.createUrl().getResponse()
 
 
-const productList = document.getElementById('productList')
-
 class Product {
+    constructor() {
+        this.productList = document.getElementById('productList')
+        this.cart = {};
+    }
+
     static renderProduct(data, category) {
+        const productList = document.getElementById('productList')
         let arr
         data.forEach(function (item) {
             if (item.category == category) {
@@ -56,6 +54,7 @@ class Product {
 
         arr.forEach(function (item) {
             const HTML = `<li class="product__item" >
+      
             <div class="product__img-box">
                 <a href="">
                     <img class="product__img"
@@ -77,31 +76,26 @@ class Product {
         </li>`;
             productList.insertAdjacentHTML("afterbegin", HTML);
         })
+    }
 
+    addListener() {
+        this.productList.addEventListener('click', (e) => {
+                const target = e.target;
 
-        // addListener() {
-        //     const cart = {};
-        //     productList.addEventListener('click',
-        //
-        //         function (e) {
-        //             const target = e.target;
-        //
-        //             if (target.classList.contains('to-cart')) {
-        //                 const id = target.dataset['id']
-        //
-        //                 if (cart.hasOwnProperty(id)) {
-        //                     cart[id][0] += 1
-        //                 } else {
-        //                     cart[id] = [1]
-        //                 }
-        //                 localStorage.setItem('cart', JSON.stringify(cart))
-        //                 console.log('LocalStorage', localStorage)
-        //             }
-        //         }
-        //     )
-        // }
+                if (target.classList.contains('to-cart')) {
+                    const id = target.dataset['id'];
+
+                    if (this.cart.hasOwnProperty(id)) {
+                        this.cart[id][0] += 1
+                    } else {
+                        this.cart[id] = [1]
+                    }
+                    localStorage.setItem('cart', JSON.stringify(this.cart))
+                    console.log('LocalStorage', localStorage)
+                }
+            }
+        )
     }
 }
 
-const product = new Product()
-console.log(product)
+const product = new Product().addListener()
