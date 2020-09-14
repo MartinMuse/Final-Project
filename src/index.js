@@ -26,11 +26,12 @@ class API {
         });
 
         const result = await response.json();
-        if (!response.ok) {                                                      //если ответ не 200
+        if (!response.ok) {
             throw new Error(`Error, status: ${response.status}`);
         } else {
-            //Product.renderProduct(result)
-            Product.renderProduct(result)
+            console.log('Result', result)
+            Product.renderProduct(result, 'Assortments')
+            Product.renderProduct(result, 'Chocolate bars')
         }
         return result
     }
@@ -38,30 +39,15 @@ class API {
 
 const request = new API('products');
 request.createUrl().getResponse()
-request.f
+
 
 const productList = document.getElementById('productList')
 
 class Product {
-    constructor(category) {
-        this.category = category || 'Assortments';
-        // this.data = request.f
-    }
-
-    static checkCategory(data) {
-        let arr
-        data.forEach((item) => {
-            if (item.category === 'Assortments') {
-                return arr = item.product
-            }
-        })
-        return arr
-    }
-
-    static renderProduct(data) {
+    static renderProduct(data, category) {
         let arr
         data.forEach(function (item) {
-            if (item.category == 'Assortments') {
+            if (item.category == category) {
                 return arr = item.product
             }
             console.log('Arr', arr)
@@ -117,5 +103,5 @@ class Product {
     }
 }
 
-const product = new Product('Assortments')
+const product = new Product()
 console.log(product)
