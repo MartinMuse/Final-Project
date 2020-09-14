@@ -1,11 +1,12 @@
 // import {scrolledHeader} from "./js/header.js";
 // import {Comment} from './js/comments.js'
 
+import {LocalStorage} from "./js/localStorage.js";
+
 class API {
     constructor(category, key, query) {
         this.query = query || 'products';
         this.key = key || '5f560e6a32f56200168bcdc3';
-        this.category = category;
     }
 
     createUrl() {
@@ -25,36 +26,42 @@ class API {
         if (!response.ok) {
             throw new Error(`Error, status: ${response.status}`);
         } else {
-            Product.renderProduct(result, this.category)
+            const assortments = new Product('Assortments', 'productList');
+            assortments.render(result).addListener()
+
+            const chocolateBars = new Product('Chocolate bars', 'productList');
+            chocolateBars.render(result)
         }
         return result
     }
 }
 
-const request = new API('Chocolate bars');
+const request = new API();
 request.createUrl().getResponse()
 
 
 class Product {
-    constructor() {
-        this.productList = document.getElementById('productList')
+    constructor(category, blockId) {
+        this.productList = document.getElementById(blockId)
         this.cart = {};
+        this.category = category;
     }
 
-    static renderProduct(data, category) {
-        const productList = document.getElementById('productList')
-        let arr
-        data.forEach(function (item) {
-            if (item.category == category) {
-                return arr = item.product
+    render(data) {
+        let listProductsByCategory;
+
+        data.forEach(item => {
+            if (item.category == this.category) {
+                console.log('This', this)
+                let g = `<h4>${item.category}</h4>`
+                this.productList.insertAdjacentHTML("afterbegin", g);
+                return listProductsByCategory = item.product
             }
-            console.log('Arr', arr)
-            return arr
         })
 
-        arr.forEach(function (item) {
+        listProductsByCategory.forEach((item) => {
             const HTML = `<li class="product__item" >
-      
+            
             <div class="product__img-box">
                 <a href="">
                     <img class="product__img"
@@ -74,8 +81,9 @@ class Product {
                 </button>
             </div>
         </li>`;
-            productList.insertAdjacentHTML("afterbegin", HTML);
+            this.productList.insertAdjacentHTML("afterbegin", HTML);
         })
+        return this
     }
 
     addListener() {
@@ -90,7 +98,8 @@ class Product {
                     } else {
                         this.cart[id] = [1]
                     }
-                    localStorage.setItem('cart', JSON.stringify(this.cart))
+                    LocalStorage.addToLocalStorage('cart', this.cart);
+                    // LocalStorage.getFromLocalStorage('cart')
                     console.log('LocalStorage', localStorage)
                 }
             }
@@ -98,4 +107,4 @@ class Product {
     }
 }
 
-const product = new Product().addListener()
+
