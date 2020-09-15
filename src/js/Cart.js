@@ -1,4 +1,4 @@
-import {LocalStorage} from "./localStorage.js";
+import {LocalStorage} from "./LocalStorage.js";
 
 class Cart {
     constructor() {
@@ -10,10 +10,10 @@ class Cart {
         if (this.cartData !== null) {
             this.render('Name', 'Cost', 'Count')
         } else {
-            this.cartBox.innerHTML = `<div class ='cart__box-button'>
+            this.cartBox.innerHTML =
+                `<div class ='cart__box-button'>
                  <a href="../pages/products-page.html"
-                  class = 'button categories__button categories__button--hovered'>
-                        VEIW ALL PRODUCTS</a>
+                  class = 'button categories__button categories__button--hovered'>VEIW ALL PRODUCTS</a>
               </div>`
         }
         return this

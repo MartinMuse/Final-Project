@@ -1,4 +1,4 @@
-import {Product} from "../index.js";
+import {Product} from "./Product.js";
 
 class API {
     constructor(category, key, query) {
@@ -24,7 +24,7 @@ class API {
             throw new Error(`Error, status: ${response.status}`);
         } else {
             const assortments = new Product('Assortments', 'productList');
-            assortments.render(result).addToCart()
+            assortments.render(result)
 
             const chocolateBars = new Product('Chocolate bars', 'productList');
             chocolateBars.render(result);

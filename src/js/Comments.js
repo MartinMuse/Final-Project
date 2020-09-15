@@ -1,4 +1,4 @@
-import {LocalStorage} from "./localStorage.js";
+import {LocalStorage} from "./LocalStorage.js";
 
 class FotmatDate {
     static getDate(date) {
