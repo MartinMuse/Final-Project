@@ -1,7 +1,6 @@
-# 👋 Sweet Shop 'Choco Rocco'  
-:cookie: :lollipop:
+# 👋 Sweet Shop 'Choco Rocco'  :chocolate_bar: :lollipop:
 
-- **Used:** JavaScript ES6, SASS, HTML
+- **Used:** JavaScript ES6, CSS(SASS), HTML
 - **Time:** About 2 Weeks
 
 ### 🚧 Responsive design, animation on scroll, touch-friendly carousel, optimized for 5 breakpoints:
@@ -12,7 +11,7 @@
 - lg: >1024px,
 - xl: >1280px
 
-### 🏄‍‍♀️ How to use:
+### :clipboard: ‍‍:small_red_triangle_down: How to use:
 - Use `npm run dev` Builds the project in development mode 
 - Use `npm run build` Builds the project for production to the build folder.
 It correctly bundles in production mode and optimizes the build for the best performance.
