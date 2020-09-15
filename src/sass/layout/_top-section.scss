@@ -2,6 +2,21 @@
 
 .top-section {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 40px;
+  background-repeat: no-repeat;
+  background-image: url(http://chocorocco.ancorathemes.com/wp-content/uploads/2017/09/slide1.jpg);
+  background-size: cover;
+  background-position: 50% 50%;
+  width: 100%;
+  height: 100%;
+
+  &__home{
+    text-align: center;
+  }
 
   &__title {
     padding: 150px 0 20px;
@@ -23,18 +38,5 @@
     }
   }
 }
-.assortments__top-section{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding-bottom: 40px;
-  background-repeat: no-repeat;
-  background-image: url(http://chocorocco.ancorathemes.com/wp-content/uploads/2017/09/slide1.jpg);
-  background-size: cover;
-  background-position: 50% 50%;
-  width: 100%;
-  height: 100%;
 
-}
 

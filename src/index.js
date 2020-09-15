@@ -1,49 +1,9 @@
-// import {scrolledHeader} from "./js/header.js";
-// import {Comment} from './js/comments.js'
-
 import {LocalStorage} from "./js/localStorage.js";
 
-class API {
-    constructor(category, key, query) {
-        this.query = query || 'products';
-        this.key = key || '5f560e6a32f56200168bcdc3';
-    }
-
-    createUrl() {
-        this.appUrl = `https://${this.key}.mockapi.io/api/data/${this.query}`;
-        return this;
-    }
-
-    async getResponse() {
-        const response = await fetch(this.appUrl, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json;charset=utf-8'
-            }
-        });
-
-        const result = await response.json();
-        if (!response.ok) {
-            throw new Error(`Error, status: ${response.status}`);
-        } else {
-            const assortments = new Product('Assortments', 'productList');
-            assortments.render(result).addListener()
-
-            const chocolateBars = new Product('Chocolate bars', 'productList');
-            chocolateBars.render(result)
-        }
-        return result
-    }
-}
-
-const request = new API();
-request.createUrl().getResponse()
-
-
-class Product {
+export class Product {
     constructor(category, blockId) {
         this.productList = document.getElementById(blockId)
-        this.cart = {};
+        this.cart = LocalStorage.getFromLocalStorage('cart') || {};
         this.category = category;
     }
 
@@ -52,7 +12,6 @@ class Product {
 
         data.forEach(item => {
             if (item.category == this.category) {
-                console.log('This', this)
                 let g = `<h4>${item.category}</h4>`
                 this.productList.insertAdjacentHTML("afterbegin", g);
                 return listProductsByCategory = item.product
@@ -63,7 +22,7 @@ class Product {
             const HTML = `<li class="product__item" >
             
             <div class="product__img-box">
-                <a href="">
+                <a href="" >
                     <img class="product__img"
                          src=${item.assortImage}>
                 </a>
@@ -86,20 +45,22 @@ class Product {
         return this
     }
 
-    addListener() {
+    addToCart() {
         this.productList.addEventListener('click', (e) => {
                 const target = e.target;
+                const itemTitle = target.parentNode.querySelector('.product__title').innerHTML;
+                const itemPrice = target.parentNode.querySelector('.product__cost').innerHTML;
+                 //const itemImg = target.parentNode.querySelector('.product__img').getAttribute('src');
 
                 if (target.classList.contains('to-cart')) {
                     const id = target.dataset['id'];
 
                     if (this.cart.hasOwnProperty(id)) {
-                        this.cart[id][0] += 1
+                        this.cart[id][2] += 1
                     } else {
-                        this.cart[id] = [1]
+                        this.cart[id] = [ itemTitle, itemPrice, 1]
                     }
                     LocalStorage.addToLocalStorage('cart', this.cart);
-                    // LocalStorage.getFromLocalStorage('cart')
                     console.log('LocalStorage', localStorage)
                 }
             }
@@ -107,4 +68,4 @@ class Product {
     }
 }
 
-
+console.log('LocalStorage', localStorage)

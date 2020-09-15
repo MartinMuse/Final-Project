@@ -1,5 +1,5 @@
 {
-  "name": "test-5",
+  "name": "sweet_shop",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,8 +10,7 @@
     "dev": "./node_modules/.bin/webpack --mode development --watch"
   },
   "repository": {
-    "type": "git",
-    "url": "git+https://Vasyl_Pidgornyi@bitbucket.org/andersen2020/test-5.git"
+    "type": "git"
   },
   "author": "",
   "license": "ISC",

@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
     <script type="module" src="../index.js" defer></script>
-    <script type="module" src="../js/API.js" defer></script>
+    <script type="module" src="../js/cart.js" defer></script>
     <title>Products</title>
 </head>
 <body class="body">
@@ -51,21 +51,54 @@
 </header>
 
 <section class="top-section">
-    <h1 class="title top-section__title">
-       - Shop -
+    <h1 class="title title__cart top-section__title">
+        - Cart -
     </h1>
 
     <h4 class="sub-title top-section__sub-title">
-        Handcrafted Chocolate
+        Choose the best
     </h4>
 </section>
 
-<section class="product">
+<section>
     <div class="wrapper">
-
-        <ul id="productList" class="product__list"> </ul>
+        <div id="cartBox"></div>
     </div>
 </section>
+
+<section class="product-categories">
+    <div class="wrapper">
+        <h1 class="title product-categories__title">
+            Discover the products
+        </h1>
+
+        <h4 class="sub-title product-categories__sub-title">
+            Products Categories
+        </h4>
+
+        <div class="categories">
+            <div class="categories__block">
+                <img src="http://chocorocco.ancorathemes.com/wp-content/uploads/2017/05/category-4.jpg"
+                     alt="ASSORTMENTS">
+                <h2 class="title--uppercase categories--hovered"> CHOCOLATE BARS </h2>
+            </div>
+            <div class="categories__block">
+                <img src="http://chocorocco.ancorathemes.com/wp-content/uploads/2017/05/category-3.jpg"
+                     alt="CHOCOLATE BARS">
+                <h2 class="title--uppercase categories--hovered"> CHOCOLATE BARS </h2>
+            </div>
+            <div class="categories__block">
+                <img src="http://chocorocco.ancorathemes.com/wp-content/uploads/2017/05/category-2.jpg" alt="TRUFFLES">
+                <h2 class="title--uppercase categories--hovered"> CHOCOLATE BARS </h2>
+            </div>
+            <div class="categories__block">
+                <img src="http://chocorocco.ancorathemes.com/wp-content/uploads/2017/05/category-1.jpg" alt="BARKS">
+                <h2 class="title--uppercase categories--hovered"> CHOCOLATE BARS </h2>
+            </div>
+        </div>
+    </div>
+</section>
+
 
 <footer class="footer">
     <div class='wrapper'>

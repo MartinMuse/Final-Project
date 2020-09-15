@@ -8,7 +8,7 @@ class FotmatDate {
     };
 }
 
-export class Comment {
+class Comment {
     constructor(input, form, textarea, commentsBox) {
         this.comments = [];
         this.date = FotmatDate.getDate(new Date());
@@ -47,7 +47,7 @@ export class Comment {
 
     getCommentsFromLocalStorage(key) {
         if (LocalStorage.getFromLocalStorage(key)) {
-            this.comments = JSON.parse(LocalStorage.getFromLocalStorage(key));
+            this.comments = LocalStorage.getFromLocalStorage(key);
             this.render();
             return this;
         }

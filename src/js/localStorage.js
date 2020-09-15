@@ -4,6 +4,6 @@ export class LocalStorage {
     }
 
     static getFromLocalStorage(key) {
-        return localStorage.getItem(key);
+        return JSON.parse(localStorage.getItem(key));
     }
 }
