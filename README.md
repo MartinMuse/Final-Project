@@ -1,9 +1,10 @@
 # 👋 Sweet Shop 'Choco Rocco'  :chocolate_bar: :lollipop:
 
+
 - **Used:** JavaScript ES6, CSS(SASS), HTML
 - **Time:** About 2 Weeks
 
-### 🚧 Responsive design, animation on scroll, touch-friendly carousel, optimized for 5 breakpoints:
+### :large_orange_diamond: Responsive design, optimized for 5 breakpoints:
 
 - mobile: < 640px,
 - sm: >640px,
