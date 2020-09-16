@@ -55,112 +55,58 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, .3);
 }
 
-.animated {
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-}
-
-@-webkit-keyframes zoomIn {
-  0% {
-    opacity: 0;
-    -webkit-transform: scale3d(.3, .3, .3);
-    transform: scale3d(.3, .3, .3);
-  }
-
-  50% {
-    opacity: 1;
-  }
-}
-
-@keyframes zoomIn {
-  0% {
-    opacity: 0;
-    -webkit-transform: scale3d(.3, .3, .3);
-    -ms-transform: scale3d(.3, .3, .3);
-    transform: scale3d(.3, .3, .3);
-  }
-
-  50% {
-    opacity: 1;
-  }
-}
-
-.zoomIn {
-  -webkit-animation-name: zoomIn;
-  animation-name: zoomIn;
-}
-
-@-webkit-keyframes zoomOut {
-  0% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0;
-    -webkit-transform: scale3d(.3, .3, .3);
-    transform: scale3d(.3, .3, .3);
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes zoomOut {
-  0% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0;
-    -webkit-transform: scale3d(.3, .3, .3);
-    -ms-transform: scale3d(.3, .3, .3);
-    transform: scale3d(.3, .3, .3);
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-
-.zoomOut {
-  -webkit-animation-name: zoomOut;
-  animation-name: zoomOut;
-}
-
-#demo01 {
-  font-size: 20px;
-}
-.close-animatedModal {
-  position: relative;
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
   width: 100%;
-  text-align: right;
-  margin-top: 40px;
-  right: 40px;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
 }
 
-.closebt:hover {
-  transform: rotate(90deg);
+.modal-content {
+  position: relative;
+  background-color: $white;
+  margin: auto;
+  padding: 0;
+  border: 5px solid $dark-brown;
+  width: 90%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
 }
 
-.closebt {
-  color: #BFE2FF;
-  font-size: 40px;
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+
+.close {
+  padding: 10px;
+  float: right;
+  font-size: 50px;
   font-weight: bold;
-  font-family: Times, sans-serif;
-  border-radius: 50%;
-  border: 4px solid #BFE2FF;
-  width: 50px;
-  height: 50px;
-  line-height: 50px;
-  text-align: center;
-  margin: 20px;
-  cursor: pointer;
-  position: absolute;
-  right: 0;
-  transform: rotate(45deg);
-  transition: all 0.6s;
-  box-sizing: content-box;
 }
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.modal-body {padding: 2px 16px;}
+
+

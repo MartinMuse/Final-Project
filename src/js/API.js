@@ -12,12 +12,7 @@ class API {
     }
 
     async getResponse() {
-        const response = await fetch(this.appUrl, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json;charset=utf-8'
-            }
-        });
+        const response = await fetch(this.appUrl);
 
         const result = await response.json();
         if (!response.ok) {

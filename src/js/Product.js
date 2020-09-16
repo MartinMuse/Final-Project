@@ -33,7 +33,8 @@ export class Product {
                     </a>
                 </h4>
                 
-                <span title="add to see more" class="product__description main sub-title" 
+                <span title="add to see more" 
+                      class="myBtn product__description main sub-title" 
                     data-item = '${JSON.stringify(item)}'>
                     ${item.description}
                  </span>
@@ -58,7 +59,7 @@ class Button {
 
         productList.addEventListener('click', (e) => {
                 const target = e.target;
-                console.log('Target', target)
+
                 const itemTitle = target.parentNode.querySelector('.product__title').innerHTML;
                 const itemPrice = target.parentNode.querySelector('.product__cost').innerHTML;
 
@@ -66,8 +67,7 @@ class Button {
 
                     const dataItem = target.dataset['item'];
                     const description = JSON.parse(dataItem)
-
-                    AnimatedModal.render(description);
+                    Class.render(description )
                 }
 
                 if (target.classList.contains('to-cart')) {
@@ -86,100 +86,23 @@ class Button {
 
 Button.addToCart();
 
-class AnimatedModal {
-    constructor(selector, product, options) {
-        this.isOpen = false;
-        this.opener = document.querySelector(selector);
-        this.modalName = this.opener.getAttribute('href').replace('#', '');
-        this.closer = document.querySelector('.close-' + this.modalName);
-        this.modal = document.querySelector('#' + this.modalName);
-        this.product = product;
-
-        this.settings = Object.assign({
-            position: 'fixed',
-            width: '100%',
-            height: '100%',
-            top: '0px',
-            left: '0px',
-            zIndexIn: '99999',
-            zIndexOut: '-9999',
-            color: 'white',
-            opacityIn: '1',
-            opacityOut: '0',
-            animatedIn: 'zoomIn',
-            animatedOut: 'zoomOut',
-            animationDuration: 600,
-            overflow: 'auto',
-            // Callbacks
-            beforeOpen: function () {
-            },
-            afterOpen: function () {
-            },
-            beforeClose: function () {
-            },
-            afterClose: function () {
-            }
-        }, options);
-
-        this.init();
-    }
-
-    init() {
-        this.modal.classList.add('animated', this.modalName + '-off');
-
-        const cssText =
-            'position: ' + this.settings.position + ';' +
-            'width: ' + this.settings.width + ';' +
-            'height: ' + this.settings.height + ';' +
-            'top: ' + this.settings.top + ';' +
-            'left: ' + this.settings.left + ';' +
-            'background-color: ' + this.settings.color + ';' +
-            'overflow-y: ' + this.settings.overflow + ';' +
-            'z-index: ' + this.settings.zIndexOut + ';' +
-            'opacity: ' + this.settings.opacityOut + ';' +
-            'animation-duration: ' + this.settings.animationDuration + 'ms' + ';';
-        this.modal.style.cssText = cssText;
-
-        const open = (event) => {
-            event.preventDefault();
-            document.body.style.overflow = 'hidden';
-
-            if (!this.isOpen) {
-                this.modal.classList.remove(this.settings.animatedOut, this.modalName + '-off');
-                this.modal.classList.add(this.modalName + '-on');
-                this.settings.beforeOpen();
-                this.modal.style.opacity = this.settings.opacityIn;
-                this.modal.style.zIndex = this.settings.zIndexIn;
-                this.modal.classList.add(this.settings.animatedIn);
-
-                setTimeout(this.afterOpen.bind(this), this.settings.animationDuration);
-                this.isOpen = true;
-            }
-        }
-
-        this.opener.addEventListener('click', open);
-
-        const close = (event) => {
-            event.preventDefault();
-            document.body.style.overflow = 'auto';
-
-            if (this.isOpen) {
-                this.modal.classList.remove(this.modalName + '-on');
-                this.modal.classList.add(this.modalName + '-off');
-                this.modal.classList.remove(this.settings.animatedIn);
-                this.modal.classList.add(this.settings.animatedOut);
-
-                setTimeout(this.afterClose.bind(this), this.settings.animationDuration);
-                this.isOpen = false;
-            }
-        }
-        this.closer.addEventListener('click', close);
-    }
-
+class Class {
     static render(product) {
-        const productDescription = document.getElementById('modal-content')
+        let modal = document.getElementById('myModal');
+        let btn = document.getElementsByClassName(".myBtn");
+        let span = document.getElementsByClassName("close")[0];
+        let content = document.getElementById("content")
+        console.log('Btn', btn)
+        const productList = document.getElementById('productList')
 
-        const HTML = `<li class="product__item">
+        productList.addEventListener('click', (e) => {
+            content.innerHTML =''
+            const target = e.target
+            if (target.classList.contains('myBtn')) {
+
+            modal.style.display = "block";
+
+            const HTML = `<li class="product__item">
                 <div class="product__img-box">
                     <a>
                         <img class="product__img"
@@ -203,8 +126,8 @@ class AnimatedModal {
                     <h4 class="title--uppercase">
                         Description
                     </h4>
-                    <span class="sub-title">
-                     ${product.description} 
+                    <span  class="sub-title ">
+                     ${product.description}
                     </span>
                     <p class="title--uppercase">
                        ADDITIONAL INFORMATION
@@ -212,18 +135,20 @@ class AnimatedModal {
                     <span> ${product.additionalInformation}</span>
                 </div>
             </li>`
-        productDescription.insertAdjacentHTML("afterbegin", HTML);
-    }
+            content.insertAdjacentHTML("afterbegin", HTML);
+        }
 
-    afterOpen() {
-        this.settings.afterOpen();
-    }
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
 
-    afterClose() {
-        this.modal.style.zIndex = this.settings.zIndexOut;
-        this.settings.afterClose();
-    }
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    })
 }
-
-let g = new AnimatedModal('#demo01');
+}
+new Class()
 
