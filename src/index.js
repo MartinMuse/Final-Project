@@ -30,6 +30,9 @@ export class Header {
         }, {
             link: 'cart.html',
             title: 'Cart'
+        }, {
+            link: 'login-page.html',
+            title: 'Log in'
         }];
     }
 

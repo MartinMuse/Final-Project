@@ -16,6 +16,9 @@ class HomeHeader extends Header{
         }, {
             link: './src/pages/cart.html',
             title: 'Cart'
+        }, {
+            link: './src/pages/login-page.html',
+            title: 'Log in'
         }];
     }
 
