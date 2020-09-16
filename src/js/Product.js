@@ -16,16 +16,15 @@ export class Product {
         data.forEach(item => {
             if (item.category == this.category) {
                 const category = `<h4>${item.category}</h4>`
-                this.productList.insertAdjacentHTML("afterbegin", category );
+                this.productList.insertAdjacentHTML("afterbegin", category);
                 return listProductsByCategory = item.product;
             }
         })
 
         listProductsByCategory.forEach((item) => {
-
             const HTML = `<li class="product__item" >
             <div class="product__img-box">
-                <a >
+                <a>
                     <img class="product__img"
                          src=${item.assortImage}>
                 </a>
@@ -37,7 +36,9 @@ export class Product {
                         ${item.title}
                     </a>
                 </h4>
-                <span class="product__description sub-title ">${item.description}</span>
+                <span class="product__description main sub-title" data-item = '${JSON.stringify(item)}' >
+                    ${item.description}
+                 </span>
                 <span class="product__cost">${item.cost} </span>
                 <button  data-id=${item.id} class="button to-cart categories__button--hovered product__button">
                     <i class="fa fa-cart-arrow-down product__fa" aria-hidden="true"></i>
@@ -52,19 +53,28 @@ export class Product {
     }
 }
 
-class Button{
+class Button {
     static addToCart() {
         const productList = document.getElementById('productList')
         const cart = LocalStorage.getFromLocalStorage('cart') || {};
 
-       productList.addEventListener('click', (e) => {
+        productList.addEventListener('click', (e) => {
                 const target = e.target;
+                console.log('Target', target)
                 const itemTitle = target.parentNode.querySelector('.product__title').innerHTML;
                 const itemPrice = target.parentNode.querySelector('.product__cost').innerHTML;
 
+                if (target.classList.contains('main')) {
+                    // let dataItem = target.getAttribute('data-item');
+                    // JSON.parse(dataItem)
+
+                    let dataItem = target.dataset['item'];
+                    console.log('Item',  dataItem)
+                }
+
                 if (target.classList.contains('to-cart')) {
                     const id = target.dataset['id'];
-
+                    console.log('Id', id)
                     if (cart.hasOwnProperty(id)) {
                         cart[id][2] += 1
                     } else {
@@ -77,5 +87,5 @@ class Button{
     }
 }
 
- Button.addToCart();
+Button.addToCart();
 
