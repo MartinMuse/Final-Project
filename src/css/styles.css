@@ -364,9 +364,6 @@ img {
   display: inline-block; }
 
 .header {
-  font-size: 15px;
-  color: #ffffff;
-  letter-spacing: 1px;
   position: sticky;
   top: 0;
   text-transform: uppercase; }
@@ -381,10 +378,12 @@ img {
     max-width: 80px;
     max-height: 80px; }
   .header__list {
+    font-size: 0;
     list-style-type: none;
     display: flex;
     justify-content: space-between; }
   .header__item {
+    font-size: 15px;
     padding: 0 0 0 30px; }
   .header__menu {
     color: #ffffff;

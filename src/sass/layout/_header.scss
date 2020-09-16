@@ -2,7 +2,7 @@
 @import '../abstracts/mixins';
 
 .header {
-  @include text-styles($md-font-size, $white);
+  //@include text-styles($md-font-size, $white);
   position: sticky;
   top: 0;
   text-transform: uppercase;
@@ -22,15 +22,16 @@
   }
 
   &__list {
+    font-size: 0;
     list-style-type: none;
     display: flex;
     justify-content: space-between;
   }
 
   &__item {
+    font-size: $md-font-size;
     padding: 0 0 0 30px;
   }
-
   &__menu {
     color: $white;
     text-decoration: none;

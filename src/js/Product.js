@@ -4,28 +4,28 @@ export class Product {
     constructor(category, blockId) {
         this.productList = document.getElementById(blockId)
         this.category = category;
-        this.data = []
     }
+
+    // g(item){
+    //     console.log('Item', item)
+    // }
 
     render(data) {
         let listProductsByCategory;
 
         data.forEach(item => {
             if (item.category == this.category) {
-                let g = `<h4>${item.category}</h4>`
-                this.productList.insertAdjacentHTML("afterbegin", g);
+                const category = `<h4>${item.category}</h4>`
+                this.productList.insertAdjacentHTML("afterbegin", category );
                 return listProductsByCategory = item.product;
             }
         })
 
-
         listProductsByCategory.forEach((item) => {
-            this.data = item
 
             const HTML = `<li class="product__item" >
-          
             <div class="product__img-box">
-                <a href="" >
+                <a >
                     <img class="product__img"
                          src=${item.assortImage}>
                 </a>
@@ -43,6 +43,7 @@ export class Product {
                     <i class="fa fa-cart-arrow-down product__fa" aria-hidden="true"></i>
                     to card
                 </button>
+                
             </div>
         </li>`;
             this.productList.insertAdjacentHTML("afterbegin", HTML);
@@ -60,7 +61,6 @@ class Button{
                 const target = e.target;
                 const itemTitle = target.parentNode.querySelector('.product__title').innerHTML;
                 const itemPrice = target.parentNode.querySelector('.product__cost').innerHTML;
-                //const itemImg = target.parentNode.querySelector('.product__img').getAttribute('src');
 
                 if (target.classList.contains('to-cart')) {
                     const id = target.dataset['id'];
@@ -76,5 +76,6 @@ class Button{
         )
     }
 }
-// Button.addToCart()
+
+ Button.addToCart();
 
