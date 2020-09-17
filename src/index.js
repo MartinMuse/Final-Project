@@ -18,6 +18,7 @@ export class Header {
 
     render() {
         this.renderNav = this.navBar.map((nav) => {
+
             return `<li class="header__item">
                          <a class="header__menu assortments__menu assortments__menu--hovered"
                             href=${nav.link}>

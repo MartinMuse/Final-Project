@@ -35,7 +35,7 @@ export class Product {
                 
                 <span title="add to see more" 
                       class="myBtn product__description main sub-title" 
-                    data-item = '${JSON.stringify(item)}'>
+                       data-item = '${JSON.stringify(item)}'>
                     ${item.description}
                  </span>
                 <span class="product__cost">${item.cost} </span>
@@ -59,7 +59,7 @@ class Button {
 
         productList.addEventListener('click', (e) => {
                 const target = e.target;
-
+                console.log('Target', target)
                 const itemTitle = target.parentNode.querySelector('.product__title').innerHTML;
                 const itemPrice = target.parentNode.querySelector('.product__cost').innerHTML;
 
@@ -67,7 +67,7 @@ class Button {
 
                     const dataItem = target.dataset['item'];
                     const description = JSON.parse(dataItem)
-                    Class.render(description )
+                    Modal.render(description)
                 }
 
                 if (target.classList.contains('to-cart')) {
@@ -86,23 +86,16 @@ class Button {
 
 Button.addToCart();
 
-class Class {
+class Modal {
     static render(product) {
-        let modal = document.getElementById('myModal');
-        let btn = document.getElementsByClassName(".myBtn");
-        let span = document.getElementsByClassName("close")[0];
-        let content = document.getElementById("content")
-        console.log('Btn', btn)
-        const productList = document.getElementById('productList')
+        const modal = document.getElementById('myModal');
+        const span = document.getElementsByClassName("close")[0];
+        const content = document.getElementById("content")
+        modal.style.display = "block";
 
-        productList.addEventListener('click', (e) => {
-            content.innerHTML =''
-            const target = e.target
-            if (target.classList.contains('myBtn')) {
+        content.innerHTML = ''
 
-            modal.style.display = "block";
-
-            const HTML = `<li class="product__item">
+        const HTML = `<li class="product__item">
                 <div class="product__img-box">
                     <a>
                         <img class="product__img"
@@ -118,11 +111,6 @@ class Class {
                     <span class="product__cost">${product.cost}</span>
                     <span class="product__description sub-title ">${product.description} </span>
 
-                    <button class="button categories__button--hovered product__button">
-                        <i class="fa fa-cart-arrow-down product__fa" aria-hidden="true"></i>
-                        to card
-                    </button>
-
                     <h4 class="title--uppercase">
                         Description
                     </h4>
@@ -135,9 +123,8 @@ class Class {
                     <span> ${product.additionalInformation}</span>
                 </div>
             </li>`
-            content.insertAdjacentHTML("afterbegin", HTML);
-        }
 
+        content.insertAdjacentHTML("afterbegin", HTML);
         span.onclick = function () {
             modal.style.display = "none";
         }
@@ -147,8 +134,7 @@ class Class {
                 modal.style.display = "none";
             }
         }
-    })
+    }
 }
-}
-new Class()
 
+new Modal()
