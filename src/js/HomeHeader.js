@@ -53,6 +53,7 @@ export class HomeHeader extends Header{
     }
 }
 const homeHeader = new HomeHeader('home-header')
+const homeHeaderColor="#ffffff"
 homeHeader.checkStatus()
-homeHeader.render().scrolledHeader()
+homeHeader.render(homeHeaderColor).scrolledHeader()
 console.log('HomeHeader', homeHeader)
