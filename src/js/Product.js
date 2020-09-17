@@ -1,3 +1,5 @@
+import {Button} from "./Button.js";
+
 export class Product {
     constructor(category, blockId) {
         this.productList = document.getElementById(blockId)
@@ -6,7 +8,6 @@ export class Product {
 
     render(data) {
         let listProductsByCategory;
-
         data.forEach(item => {
             if (item.category == this.category) {
                 const category = `<h4>${item.category}</h4>`
@@ -49,3 +50,4 @@ export class Product {
         return this
     }
 }
+Button.addToCart();

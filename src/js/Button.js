@@ -3,13 +3,14 @@ import {Modal} from "./Modal.js";
 
 export class Button {
     static addToCart() {
+
         const productList = document.getElementById('productList')
         const cart = LocalStorage.getFromLocalStorage('cart') || {};
 
         productList.addEventListener('click', (e) => {
                 const target = e.target;
-            console.log('Target', target)
-            const itemTitle = target.parentNode.querySelector('.product__title').innerHTML;
+
+                const itemTitle = target.parentNode.querySelector('.product__title').innerHTML;
                 const itemPrice = target.parentNode.querySelector('.product__cost').innerHTML;
 
                 if (target.classList.contains('main')) {
@@ -33,4 +34,3 @@ export class Button {
     }
 }
 
-  Button.addToCart();

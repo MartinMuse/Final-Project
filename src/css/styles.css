@@ -303,7 +303,11 @@ template {
 [hidden] {
   display: none; }
 
+html {
+  height: 100%; }
+
 .body {
+  height: 100%;
   font-family: "Fjalla One", sans-serif;
   font-size: 15px;
   color: #5a4f45;
@@ -411,8 +415,7 @@ img {
   background-image: url(http://chocorocco.ancorathemes.com/wp-content/uploads/2017/09/slide1.jpg);
   background-size: cover;
   background-position: 50% 50%;
-  width: 100%;
-  height: 100%; }
+  width: 100%; }
   .top-section__home {
     text-align: center; }
   .top-section__title {
@@ -686,6 +689,30 @@ img {
 
 .title__cart {
   padding: 60px 0 0 0; }
+
+.login {
+  display: flex; }
+  .login__container {
+    max-width: 250px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin: 130px auto;
+    align-items: center; }
+  .login__message {
+    padding-top: 20px;
+    color: red; }
+
+.form__button {
+  width: 40%;
+  padding: 7px;
+  margin: 20px 0; }
+
+.input__email {
+  margin: 5px; }
+
+.input__password {
+  margin: 5px; }
 
 .footer {
   color: #ffffff;
