@@ -6,10 +6,6 @@ export class Product {
         this.category = category;
     }
 
-    // g(item){
-    //     console.log('Item', item)
-    // }
-
     render(data) {
         let listProductsByCategory;
 

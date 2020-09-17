@@ -1,9 +1,9 @@
 import {Header} from "./Header.js";
 import {LocalStorage} from "./LocalStorage.js";
 
-export class HomeHeader extends Header{
-    constructor(header, navBar) {
-        super(header);
+export class HomeHeader extends Header {
+    constructor(header, homeHeaderColor, navBar) {
+        super(header, homeHeaderColor);
 
         this.navBar = [{
             link: 'index.html',
@@ -17,27 +17,25 @@ export class HomeHeader extends Header{
         }];
     }
 
-
-    checkStatus(){
-        if (LocalStorage.getFromLocalStorage("userStatus")===true){
+    checkStatus() {
+        if (LocalStorage.getFromLocalStorage("userStatus") === true) {
             this.navBar.push({
                 link: './src/pages/cart.html',
                 title: 'Cart'
-            },{
+            }, {
                 link: '',
                 title: 'Log out'
             })
-        }
-        else {
+        } else {
             this.navBar.push({
                 link: './src/pages/login-page.html',
                 title: 'Log in'
             })
         }
+        return this
     }
 
     scrolledHeader() {
-
         if (this.header) {
             window.onscroll = () => {
 
@@ -52,8 +50,6 @@ export class HomeHeader extends Header{
         return this
     }
 }
-const homeHeader = new HomeHeader('home-header')
-const homeHeaderColor="#ffffff"
-homeHeader.checkStatus()
-homeHeader.render(homeHeaderColor).scrolledHeader()
-console.log('HomeHeader', homeHeader)
+
+const homeHeader = new HomeHeader('home-header', "#ffffff")
+homeHeader.checkStatus().scrolledHeader().render()

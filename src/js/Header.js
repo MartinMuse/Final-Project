@@ -1,50 +1,52 @@
 import {LocalStorage} from "./LocalStorage.js";
-const headerColor="#5a4f45"
+
 export class Header {
-  constructor(header) {
-    this.header = document.getElementById(header)
-    this.navBar = [{
-      link: '../../index.html',
-      title: 'Home'
-    }, {
-      link: 'products-page.html',
-      title: 'Products'
-    }, {
-      link: 'comments.html',
-      title: 'Comments'
-    }];
-  }
+    constructor(header, headerColor) {
+        this.header = document.getElementById(header)
+        this.headerColor = headerColor;
 
-  checkStatus(){
-    if (LocalStorage.getFromLocalStorage("userStatus")===true){
-      this.navBar.push({
-        link: 'cart.html',
-        title: 'Cart'
-      },{
-        link: '',
-        title: 'Log out'
-      })
+        this.navBar = [{
+            link: '../../index.html',
+            title: 'Home'
+        }, {
+            link: 'products-page.html',
+            title: 'Products'
+        }, {
+            link: 'comments.html',
+            title: 'Comments'
+        }];
     }
-    else {
-      this.navBar.push({
-        link: 'login-page.html',
-        title: 'Log in'
-      })
+
+    checkStatus() {
+        if (LocalStorage.getFromLocalStorage("userStatus") === true) {
+            this.navBar.push({
+                link: 'cart.html',
+                title: 'Cart'
+            }, {
+                link: '',
+                title: 'Log out'
+            })
+        } else {
+            this.navBar.push({
+                link: 'login-page.html',
+                title: 'Log in'
+            })
+        }
+        return this
     }
-  }
 
-  render(color=headerColor) {
-    this.renderNav = this.navBar.map((nav,index) => {
+    render() {
+        this.renderNav = this.navBar.map((nav, index) => {
 
-      return `<li class="header__item" id="${nav.title}" >
-                         <a class="header__menu assortments__menu assortments__menu--hovered"  style="color: ${color}"
+            return `<li class="header__item" id="${nav.title}" >
+                         <a class="header__menu assortments__menu assortments__menu--hovered"  style="color: ${this.headerColor}"
                             href="${nav.link}">
                              ${nav.title}
                         </a>
                     </li>`
-    });
+        });
 
-    this.HTML = `
+        this.HTML = `
             <div class="header__wrapper" >
                 <div class="logo header__logo">
                     <img class="logo__img"
@@ -56,13 +58,12 @@ export class Header {
              </ul>
              </div>`;
 
-    if (this.header) {
-      this.header.insertAdjacentHTML("afterbegin", this.HTML);
+        if (this.header) {
+            this.header.insertAdjacentHTML("afterbegin", this.HTML);
+        }
+        return this
     }
-    return this
-  }
 }
 
-const header = new Header('header');
-header.checkStatus()
-header.render();
+const header = new Header('header', '"#5a4f45"');
+header.checkStatus().render()
