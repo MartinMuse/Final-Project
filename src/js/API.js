@@ -1,23 +1,18 @@
 import {Product} from "./Product.js";
 
 class API {
-    constructor(category, key, query) {
-        this.query = query || 'products';
+    constructor(key, params) {
+        this.params= params || 'products';
         this.key = key || '5f560e6a32f56200168bcdc3';
     }
 
     createUrl() {
-        this.appUrl = `https://${this.key}.mockapi.io/api/data/${this.query}`;
+        this.appUrl = `https://${this.key}.mockapi.io/api/data/${this.params}`;
         return this;
     }
 
     async getResponse() {
-        const response = await fetch(this.appUrl, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json;charset=utf-8'
-            }
-        });
+        const response = await fetch(this.appUrl);
 
         const result = await response.json();
         if (!response.ok) {

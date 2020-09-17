@@ -20,7 +20,6 @@ class Cart {
     }
 
     render(name, cost, count) {
-        // localStorage.clear()
         let totalItems = `<table class="table cart__table">
             <tr class="table__title sub-title">
             <th> ${name} </th>

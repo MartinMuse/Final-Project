@@ -9,7 +9,7 @@
   }
 
   &__item {
-    @include breakpoint(750){
+    @include breakpoint(750) {
       flex-direction: column;
     }
     display: flex;
@@ -38,14 +38,90 @@
     padding: 0 7px 0 0;
     margin-right: 5px;
   }
-  &__img-box{
+
+  &__img-box {
     margin: 40px 30px 0 0;
   }
-  &__img{
+
+  &__img {
     border: 1px solid $beige;
   }
-  &__img:hover{
+
+  &__img:hover {
     cursor: pointer;
     box-shadow: 0 0 10px rgba(0, 0, 0, .3);
   }
+}
+
+.main:hover {
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  position: relative;
+  background-color: $white;
+  margin: auto;
+  padding: 0;
+  border: 5px solid $dark-brown;
+  width: 90%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+@-webkit-keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0
+  }
+  to {
+    top: 0;
+    opacity: 1
+  }
+}
+
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0
+  }
+  to {
+    top: 0;
+    opacity: 1
+  }
+}
+
+.close {
+  padding: 10px;
+  float: right;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-body {
+  padding: 2px 16px;
 }
