@@ -37,8 +37,8 @@ class LoginClass {
     this.loginContainer.hidden=true;
   }
 
-  createMessage(){
-    this.messageContainer.innerHTML="<span class='message__title'>Login successful!</span>"
+  createMessage(message){
+    this.messageContainer.innerHTML=`<span class='message__title'>${message}</span>`
   }
 
   sendToStartPage(){
@@ -51,9 +51,9 @@ class LoginClass {
     if (users.some(this.isCorrectUser)) {
       localStorage.setItem('userStatus','true')//установка статуса
       this.hideLoginSection();
-      this.createMessage();
       this.sendToStartPage()
     } else {
+      this.createMessage("Error");
       //стилизация полей и появление подсказки
     }
   }.bind(this)
