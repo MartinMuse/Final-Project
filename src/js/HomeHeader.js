@@ -2,7 +2,7 @@ import {Header} from "./Header.js";
 import {LocalStorage} from "./LocalStorage.js";
 
 export class HomeHeader extends Header {
-    constructor(header, homeHeaderColor, navBar) {
+    constructor(header, homeHeaderColor) {
         super(header, homeHeaderColor);
 
         this.navBar = [{
