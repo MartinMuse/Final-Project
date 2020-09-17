@@ -49,12 +49,11 @@ class LoginClass {
     const users = await this.serverResponse()
     this.setUserData();
     if (users.some(this.isCorrectUser)) {
-      localStorage.setItem('userStatus','true')//установка статуса
+      localStorage.setItem('userStatus','true')
       this.hideLoginSection();
       this.sendToStartPage()
     } else {
       this.createMessage("Error");
-      //стилизация полей и появление подсказки
     }
   }.bind(this)
 }

@@ -16,4 +16,5 @@ class LogoutClass{
 }
 
 const logout=new LogoutClass();
-logout.addListener()
+if (logout.logoutBtn!==null)
+  logout.addListener()
