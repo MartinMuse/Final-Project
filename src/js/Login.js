@@ -10,11 +10,11 @@ class LoginClass {
         this.messageContainer = document.querySelector(".login__message")
 
         this.serverResponse = async function () {
-            let response = await fetch(url);
+            let response = await fetch(url)
             return await response.json()
         }
 
-        this.isCorrectUser = function (elem) {
+        this.isCorrectUser = function (elem, index, array) {
             if ((elem.password === this.userData.password) && (elem.email === this.userData.email))
                 this.userData.name = elem.name;
             return (elem.password === this.userData.password) && (elem.email === this.userData.email)
@@ -56,12 +56,11 @@ class LoginClass {
         const users = await this.serverResponse()
         this.setUserData();
         if (users.some(this.isCorrectUser)) {
-            localStorage.setItem('userStatus', 'true')//установка статуса
+            localStorage.setItem('userStatus', 'true')
             this.hideLoginSection();
             this.sendToStartPage()
         } else {
             this.createMessage("Error, please enter password and email again");
-            //стилизация полей и появление подсказки
         }
     }.bind(this)
 }
