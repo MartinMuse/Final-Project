@@ -1,6 +1,7 @@
-import {Header} from "../index.js";
+import {Header} from "./Header.js";
+import {LocalStorage} from "./LocalStorage.js";
 
-class HomeHeader extends Header{
+export class HomeHeader extends Header{
     constructor(header, navBar) {
         super(header);
 
@@ -13,13 +14,26 @@ class HomeHeader extends Header{
         }, {
             link: './src/pages/comments.html',
             title: 'Comments'
-        }, {
-            link: './src/pages/cart.html',
-            title: 'Cart'
-        }, {
-            link: './src/pages/login-page.html',
-            title: 'Log in'
         }];
+    }
+
+
+    checkStatus(){
+        if (LocalStorage.getFromLocalStorage("userStatus")===true){
+            this.navBar.push({
+                link: './src/pages/cart.html',
+                title: 'Cart'
+            },{
+                link: '',
+                title: 'Log out'
+            })
+        }
+        else {
+            this.navBar.push({
+                link: './src/pages/login-page.html',
+                title: 'Log in'
+            })
+        }
     }
 
     scrolledHeader() {
@@ -39,5 +53,6 @@ class HomeHeader extends Header{
     }
 }
 const homeHeader = new HomeHeader('home-header')
+homeHeader.checkStatus()
 homeHeader.render().scrolledHeader()
 console.log('HomeHeader', homeHeader)
