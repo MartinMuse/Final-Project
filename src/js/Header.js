@@ -37,8 +37,8 @@ export class Header {
     this.renderNav = this.navBar.map((nav,index) => {
 
       return `<li class="header__item" id="${nav.title}" >
-                         <a class="header__menu assortments__menu assortments__menu--hovered"
-                            href=${nav.link} style="color: ${color}">
+                         <a class="header__menu assortments__menu assortments__menu--hovered"  style="color: ${color}"
+                            href="${nav.link}">
                              ${nav.title}
                         </a>
                     </li>`

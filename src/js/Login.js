@@ -41,6 +41,10 @@ class LoginClass {
     this.messageContainer.innerHTML="<span class='message__title'>Login successful!</span>"
   }
 
+  sendToStartPage(){
+    document.location.replace('../../index.html')
+  }
+
   loginEvent = async function () {
     const users = await this.serverResponse()
     this.setUserData();
@@ -48,6 +52,7 @@ class LoginClass {
       localStorage.setItem('userStatus','true')//установка статуса
       this.hideLoginSection();
       this.createMessage();
+      this.sendToStartPage()
     } else {
       //стилизация полей и появление подсказки
     }

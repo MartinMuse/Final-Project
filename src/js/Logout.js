@@ -10,7 +10,8 @@ class LogoutClass{
     })
   }
   logoutEvent(){
-    localStorage.setItem('userStatus','false')
+    localStorage.setItem('userStatus','false');
+    location.reload();
   }
 }
 
