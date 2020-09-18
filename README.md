@@ -7,10 +7,9 @@ password: admin
 - **Used:** JavaScript ES6, CSS(SASS), HTML
 - **Time:** About 2 Weeks
 
-### :large_orange_diamond: Responsive design, optimized for 5 breakpoints:
+### :large_orange_diamond: Responsive design, optimized for breakpoints:
 
-- mobile: < 640px,
-- sm: >640px,
+- sm: >600px,
 - md: >768px,
 - lg: >1024px,
 - xl: >1280px
