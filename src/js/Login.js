@@ -60,7 +60,7 @@ class LoginClass {
         })
     }
 
-    pointBorder(px="1",color="#a0916d") {
+    pointBorder(px = "1", color = "#a0916d") {
         this.emailInput.style.border = `${px}px solid ${color}`;
         this.passwordInput.style.border = `${px}px solid ${color}`;
     }
@@ -94,7 +94,7 @@ class LoginClass {
             this.sendToStartPage();
         } else {
             this.createMessage("Error, please enter password and email again");
-            this.pointBorder(1,"red");
+            this.pointBorder(1, "red");
         }
     }.bind(this)
 }

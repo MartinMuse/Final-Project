@@ -10,7 +10,7 @@ export class Product {
         let listProductsByCategory;
         data.forEach(item => {
             if (item.category == this.category) {
-                const category = `<h4>${item.category}</h4>`
+                const category = `<h1 class="product__category">${item.category}</h1>`
                 this.productList.insertAdjacentHTML("afterbegin", category);
                 return listProductsByCategory = item.product;
             }
@@ -50,4 +50,5 @@ export class Product {
         return this
     }
 }
+
 Button.addToCart();

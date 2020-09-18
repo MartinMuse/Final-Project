@@ -21,10 +21,10 @@ class Cart {
 
     render(name, cost, count) {
         let totalItems = `<table class="table cart__table">
-            <tr class="table__title sub-title">
-            <th> ${name} </th>
-            <th> ${cost} </th>
-            <th> ${count} </th> </tr>`
+                    <tr class="table__title sub-title">
+                    <th> ${name} </th>
+                    <th> ${cost} </th>
+                    <th> ${count} </th> </tr>`
 
         for (let items in this.cartData) {
             totalItems += '<tr>';

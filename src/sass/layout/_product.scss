@@ -8,12 +8,17 @@
     flex-direction: column;
   }
 
+  &__category{
+    padding: 10px 0 20px;
+    border-bottom: 1px solid $dark-beige;
+  }
+
   &__item {
     @include breakpoint(750) {
       flex-direction: column;
     }
     display: flex;
-    border-bottom: 1px solid $dark-beige;
+    border-top: 1px solid $dark-beige;
     padding-bottom: 40px;
   }
 
