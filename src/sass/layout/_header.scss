@@ -18,6 +18,9 @@
   &__logo {
     max-width: 80px;
     max-height: 80px;
+    @include breakpoint(750) {
+      display:none;
+    }
   }
 
   &__list {
