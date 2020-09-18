@@ -704,7 +704,8 @@ img {
 .form__button {
   width: 40%;
   padding: 7px;
-  margin: 20px 0; }
+  margin: 20px 0;
+  color: #5a4f45; }
 
 .input__email {
   margin: 5px; }
