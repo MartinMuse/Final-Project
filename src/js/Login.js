@@ -26,18 +26,43 @@ class LoginClass {
         this.userData.email = this.emailInput.value;
     }
 
-    // disabledButton(){
-    //     if (this.emailInput.value == '' && this.passwordInput.value == ''){
-    //         console.log('This.loginBtn.disabled', this.loginBtn.disabled)
-    //         this.loginBtn.disabled = true;
-    //     }
-    // }
-
-    addListener() {
+    addBtnListener() {
         this.loginBtn.addEventListener('click', (e) => {
-            e.preventDefault()
+            e.preventDefault();
             this.loginEvent();
         })
+    }
+
+    addInputsListener() {
+        this.onKeyUp();
+        this.onClick();
+    }
+
+    onKeyUp() {
+        this.emailInput.addEventListener('keyup', (e) => {
+            e.preventDefault();
+            this.setDisable();
+        })
+        this.passwordInput.addEventListener('keyup', (e) => {
+            e.preventDefault();
+            this.setDisable();
+        })
+    }
+
+    onClick() {
+        this.emailInput.addEventListener('click', (e) => {
+            e.preventDefault();
+            this.pointBorder()
+        })
+        this.passwordInput.addEventListener('click', (e) => {
+            e.preventDefault();
+            this.pointBorder()
+        })
+    }
+
+    pointBorder(px="1",color="#a0916d") {
+        this.emailInput.style.border = `${px}px solid ${color}`;
+        this.passwordInput.style.border = `${px}px solid ${color}`;
     }
 
     hideLoginSection() {
@@ -45,11 +70,19 @@ class LoginClass {
     }
 
     createMessage(message) {
-        this.messageContainer.innerHTML = `<span class='message__title'>${message}</span>`
+        this.messageContainer.innerHTML = `<span class='message__title'>${message}</span>`;
     }
 
     sendToStartPage() {
-        document.location.replace('../../index.html')
+        document.location.replace('../../index.html');
+    }
+
+    setDisable() {
+        if (this.emailInput.value === '' || this.passwordInput.value === '') {
+            this.loginBtn.disabled = true;
+        } else {
+            this.loginBtn.disabled = false;
+        }
     }
 
     loginEvent = async function () {
@@ -58,13 +91,15 @@ class LoginClass {
         if (users.some(this.isCorrectUser)) {
             localStorage.setItem('userStatus', 'true')
             this.hideLoginSection();
-            this.sendToStartPage()
+            this.sendToStartPage();
         } else {
             this.createMessage("Error, please enter password and email again");
+            this.pointBorder(1,"red");
         }
     }.bind(this)
 }
 
 
 let login = new LoginClass();
-login.addListener();
+login.addInputsListener()
+login.addBtnListener();
