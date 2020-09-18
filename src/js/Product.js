@@ -32,8 +32,8 @@ export class Product {
                     </a>
                 </h4>
                 
-                <span title="add to see more" 
-                      class="myBtn product__description main sub-title" 
+                <span title="see more" 
+                      class="product__description see-more sub-title" 
                        data-item = '${JSON.stringify(item)}'>
                     ${item.description}
                  </span>

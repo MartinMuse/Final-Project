@@ -3,7 +3,6 @@ import {Modal} from "./Modal.js";
 
 export class Button {
     static addToCart() {
-
         const productList = document.getElementById('productList')
         const cart = LocalStorage.getFromLocalStorage('cart') || {};
 
@@ -13,7 +12,7 @@ export class Button {
                 const itemTitle = target.parentNode.querySelector('.product__title').innerHTML;
                 const itemPrice = target.parentNode.querySelector('.product__cost').innerHTML;
 
-                if (target.classList.contains('main')) {
+                if (target.classList.contains('see-more')) {
 
                     const dataItem = target.dataset['item'];
                     const description = JSON.parse(dataItem)

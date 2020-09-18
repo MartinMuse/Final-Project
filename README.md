@@ -1,5 +1,8 @@
 # 👋 Sweet Shop 'Choco Rocco'  :chocolate_bar: :lollipop:
 
+### Log In:
+email: admin@gmail.com
+password: admin
 
 - **Used:** JavaScript ES6, CSS(SASS), HTML
 - **Time:** About 2 Weeks
