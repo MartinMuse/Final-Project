@@ -40,7 +40,7 @@ export class Product {
                 <span class="product__cost">${item.cost} </span>
                 <button  data-id=${item.id} class="button to-cart categories__button--hovered product__button">
                     <i class="fa fa-cart-arrow-down product__fa" aria-hidden="true"></i>
-                    to card
+                    to cart
                 </button>
                 
             </div>
